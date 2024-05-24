@@ -2,7 +2,7 @@
 
 ```
 
-# 可通过packr2生成模版
+# 可通过packr2生成模版 
 cmd/kitctl/internal/cmd/templates
 
 ```
