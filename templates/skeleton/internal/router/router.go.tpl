@@ -9,9 +9,9 @@ import (
 	ginSwagger "github.com/swaggo/gin-swagger"
 
 	"{{ .Mod }}/config"
+	_ "{{ .Mod }}/gen/swag-doc/swagger" // swagger 文档
 	v12 "{{ .Mod }}/internal/middleware/v1"
 	v1 "{{ .Mod }}/internal/router/v1"
-	_ "{{ .Mod }}/swag-doc/swagger" // swagger 文档
 )
 
 type Router struct {
@@ -26,7 +26,7 @@ func NewRouter(
 	engine *gin.Engine,
 	goodsCenterRouter *v1.GoodsCenterRouter,
 	goodsCenterTestV2 *v1.GoodsCenterTestV2,
-// iapRouter *v1.IapRouter,
+	// iapRouter *v1.IapRouter,
 	conf config.Config,
 ) *Router {
 	return &Router{

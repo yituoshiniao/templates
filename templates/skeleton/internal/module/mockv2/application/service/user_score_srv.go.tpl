@@ -5,8 +5,8 @@ import (
 	"time"
 
 	"github.com/go-redis/redis"
-	"gitlab.intsig.net/cs-server2/kit/xlog"
-	"gitlab.intsig.net/cs-server2/kit/xrds"
+	"github.com/yituoshiniao/kit/xlog"
+	"github.com/yituoshiniao/kit/xrds"
 
 	"{{ .Mod }}/internal/module/mockv2/application/entity"
 	"{{ .Mod }}/internal/module/mockv2/application/repository"

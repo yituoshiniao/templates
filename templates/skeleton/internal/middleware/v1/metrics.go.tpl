@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"gitlab.intsig.net/cs-server2/kit/xlog"
+	"github.com/yituoshiniao/kit/xlog"
 
 	"{{ .Mod }}/internal/metrics"
 )

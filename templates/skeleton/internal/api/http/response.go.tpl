@@ -7,8 +7,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/opentracing/opentracing-go"
 	"github.com/pquerna/ffjson/ffjson"
-	"gitlab.intsig.net/cs-server2/kit/xlog"
-	"gitlab.intsig.net/cs-server2/kit/xtrace"
+	"github.com/yituoshiniao/kit/xlog"
+	"github.com/yituoshiniao/kit/xtrace"
 	"go.uber.org/zap"
 
 	"{{ .Mod }}/internal/metrics"

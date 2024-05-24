@@ -11,7 +11,7 @@ import (
 	"github.com/opentracing/opentracing-go"
 	"github.com/pquerna/ffjson/ffjson"
 	"github.com/uber/jaeger-client-go"
-	"gitlab.intsig.net/cs-server2/kit/xlog"
+	"github.com/yituoshiniao/kit/xlog"
 	"google.golang.org/grpc/metadata"
 
 	"github.com/gin-gonic/gin"

@@ -4,11 +4,11 @@ import (
 	"context"
 	"github.com/hibiken/asynq"
 	"{{ .Mod }}/config"
-	"gitlab.intsig.net/cs-server2/kit/xtask"
+	"github.com/yituoshiniao/kit/xtask"
 )
 
 const (
-	// AsynqDB asynq task 使用的redis db
+	//AsynqDB asynq task 使用的redis db
 	AsynqDB int = 3
 )
 

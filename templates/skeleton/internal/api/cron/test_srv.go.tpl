@@ -3,7 +3,7 @@ package cron
 import (
 	"context"
 
-	"gitlab.intsig.net/cs-server2/kit/xlog"
+	"github.com/yituoshiniao/kit/xlog"
 )
 
 type TestSrv struct {

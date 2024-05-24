@@ -1,7 +1,7 @@
 package entity
 
 import (
-	"gitlab.intsig.net/cs-server2/kit/xdb/v1"
+	"github.com/yituoshiniao/kit/xdb/v1"
 )
 
 type UserScore struct {

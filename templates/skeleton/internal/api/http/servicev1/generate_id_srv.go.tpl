@@ -2,7 +2,7 @@ package servicev1
 
 import (
 	"github.com/gin-gonic/gin"
-	"gitlab.intsig.net/cs-server2/kit/xlog"
+	"github.com/yituoshiniao/kit/xlog"
 
 	"{{ .Mod }}/internal/api/dto"
 	"{{ .Mod }}/internal/api/http"

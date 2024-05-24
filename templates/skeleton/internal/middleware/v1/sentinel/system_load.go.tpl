@@ -9,8 +9,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/shirou/gopsutil/v3/cpu"
 	"github.com/shirou/gopsutil/v3/load"
-	"gitlab.intsig.net/cs-server2/kit/xlog"
-	"gitlab.intsig.net/cs-server2/kit/xtrace"
+	"github.com/yituoshiniao/kit/xlog"
+	"github.com/yituoshiniao/kit/xtrace"
 	"go.uber.org/zap"
 )
 

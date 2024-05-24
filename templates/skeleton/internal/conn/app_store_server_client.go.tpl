@@ -10,8 +10,8 @@ import (
 	"github.com/dghubble/sling"
 	"github.com/opentracing/opentracing-go"
 	"github.com/pkg/errors"
-	"gitlab.intsig.net/cs-server2/kit/xhttp/hclient"
-	"gitlab.intsig.net/cs-server2/kit/xlog"
+	"github.com/yituoshiniao/kit/xhttp/hclient"
+	"github.com/yituoshiniao/kit/xlog"
 	"go.uber.org/zap"
 
 	"{{ .Mod }}/config"

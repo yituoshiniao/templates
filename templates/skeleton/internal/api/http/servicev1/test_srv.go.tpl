@@ -8,8 +8,8 @@ import (
 	"sync"
 
 	"github.com/gin-gonic/gin"
+	"github.com/yituoshiniao/kit/xlog"
 	openapiclient "github.com/yituoshiniao/openapi-client-go"
-	"gitlab.intsig.net/cs-server2/kit/xlog"
 
 	http "{{ .Mod }}/internal/api/http"
 	"{{ .Mod }}/internal/module/mockv2/application/service"

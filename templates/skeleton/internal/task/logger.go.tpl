@@ -3,7 +3,7 @@ package task
 import (
 	"context"
 
-	"gitlab.intsig.net/cs-server2/kit/xlog"
+	"github.com/yituoshiniao/kit/xlog"
 	"go.uber.org/zap"
 )
 

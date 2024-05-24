@@ -7,8 +7,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 	"github.com/hibiken/asynq"
-	"gitlab.intsig.net/cs-server2/kit/xlog"
-	"gitlab.intsig.net/cs-server2/kit/xtask"
+	"github.com/yituoshiniao/kit/xlog"
+	"github.com/yituoshiniao/kit/xtask"
 
 	"{{ .Mod }}/internal/api/dto"
 	"{{ .Mod }}/internal/api/http"

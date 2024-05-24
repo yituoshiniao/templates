@@ -5,9 +5,9 @@ import (
 	"encoding/json"
 
 	"github.com/hibiken/asynq"
-	"gitlab.intsig.net/cs-server2/kit/xlog"
-	"gitlab.intsig.net/cs-server2/kit/xtask"
-	"gitlab.intsig.net/cs-server2/kit/xtrace"
+	"github.com/yituoshiniao/kit/xlog"
+	"github.com/yituoshiniao/kit/xtask"
+	"github.com/yituoshiniao/kit/xtrace"
 )
 
 const (

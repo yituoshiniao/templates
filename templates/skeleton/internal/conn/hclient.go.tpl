@@ -3,7 +3,7 @@ package conn
 import (
 	"github.com/dghubble/sling"
 	"github.com/opentracing/opentracing-go"
-	"gitlab.intsig.net/cs-server2/kit/xhttp/hclient"
+	"github.com/yituoshiniao/kit/xhttp/hclient"
 	"go.uber.org/zap"
 
 	"{{ .Mod }}/config"

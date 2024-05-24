@@ -6,8 +6,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"gitlab.intsig.net/cs-server2/kit/xlog"
-	"gitlab.intsig.net/cs-server2/kit/xtrace"
+	"github.com/yituoshiniao/kit/xlog"
+	"github.com/yituoshiniao/kit/xtrace"
 )
 
 // IPWhiteListMiddleware 是一个中间件函数，用于实现IP白名单功能 //[]string{"127.0.0.1", "::1"} 运行本地

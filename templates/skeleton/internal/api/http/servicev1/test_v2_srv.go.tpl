@@ -12,7 +12,7 @@ type TestV2Srv struct {
 }
 
 func NewTestV2Srv(
-// healthyServiceClient healthyv1.HealthyApiService,
+	// healthyServiceClient healthyv1.HealthyApiService,
 	response *http.Response,
 ) *TestV2Srv {
 	return &TestV2Srv{

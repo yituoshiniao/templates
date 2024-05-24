@@ -9,7 +9,7 @@ import (
 
 	"github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/ext"
-	"gitlab.intsig.net/cs-server2/kit/xlog"
+	"github.com/yituoshiniao/kit/xlog"
 	"gorm.io/gorm"
 )
 
@@ -17,7 +17,6 @@ type Gob struct {
 }
 
 func NewGob() *Gob {
-
 	return &Gob{}
 }
 

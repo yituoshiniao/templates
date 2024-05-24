@@ -41,8 +41,10 @@ require (
 	github.com/swaggo/gin-swagger v1.6.0
 	github.com/swaggo/swag v1.16.3
 	github.com/uber/jaeger-client-go v2.30.0+incompatible
+	github.com/yituoshiniao/kit v0.3.5
 	github.com/yituoshiniao/openapi-client-go v0.0.0-20240510083236-d6f077500130
-	gitlab.intsig.net/cs-server2/kit v0.3.5
+	github.com/yituoshiniao/kit v0.3.5
+
 	go.uber.org/zap v1.25.0
 	google.golang.org/grpc v1.58.2
 	gorm.io/driver/mysql v1.5.1

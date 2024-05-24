@@ -9,8 +9,8 @@ import (
 	"github.com/gin-gonic/gin"
 	// sentinelPlugin "github.com/sentinel-group/sentinel-go-adapters/gin"
 
-	"gitlab.intsig.net/cs-server2/kit/xlog"
-	"gitlab.intsig.net/cs-server2/kit/xtrace"
+	"github.com/yituoshiniao/kit/xlog"
+	"github.com/yituoshiniao/kit/xtrace"
 )
 
 // SentinelResponse Sentinel返回

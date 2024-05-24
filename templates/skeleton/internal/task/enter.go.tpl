@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/robfig/cron/v3"
-	"gitlab.intsig.net/cs-server2/kit/xlog"
+	"github.com/yituoshiniao/kit/xlog"
 	"go.uber.org/zap"
 
 	"{{ .Mod }}/internal/metrics"

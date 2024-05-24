@@ -5,8 +5,8 @@ import (
 
 	"github.com/opentracing/opentracing-go"
 	config2 "github.com/uber/jaeger-client-go/config"
-	"gitlab.intsig.net/cs-server2/kit/xlog"
-	"gitlab.intsig.net/cs-server2/kit/xtrace"
+	"github.com/yituoshiniao/kit/xlog"
+	"github.com/yituoshiniao/kit/xtrace"
 	"go.uber.org/zap"
 
 	"{{ .Mod }}/config"

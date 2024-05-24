@@ -14,11 +14,10 @@ import (
 
 	"github.com/shirou/gopsutil/v3/cpu"
 	"github.com/shirou/gopsutil/v3/load"
-	"gitlab.intsig.net/cs-server2/kit/xlog"
+	"github.com/yituoshiniao/kit/xlog"
 
 	"{{ .Mod }}/inject"
 	app2 "{{ .Mod }}/internal/app"
-	// _ "{{ .Mod }}/swag-doc/swagger" // 加载swagger文档
 	_ "{{ .Mod }}/internal/util" // 加载翻译
 )
 
@@ -145,4 +144,37 @@ func main() {
 	// 停止AsynqServer
 	app.AsynqServer.Stop()
 	app.AsynqServer.Shutdown()
+}
+
+func system(ctx context.Context) {
+	timer := time.NewTimer(2 * time.Second)
+	physicalCnt, _ := cpu.Counts(false)
+	logicalCnt, _ := cpu.Counts(true)
+	for {
+		loadStat, err := load.Avg()
+		if err != nil {
+			xlog.S(ctx).Errorw("load.Avg错误信息", "err", err)
+		}
+
+		totalPercent, _ := cpu.Percent(3*time.Second, false)
+		perPercents, _ := cpu.Percent(3*time.Second, true)
+
+		timer.Reset(2 * time.Second) // 这里复用了 timer
+		select {
+		case <-timer.C:
+			// fmt.Println("每隔3秒执行一次")
+			fmt.Println("loadStat-信息",
+				loadStat,
+				fmt.Sprintf("逻辑核心数%v", logicalCnt),
+				fmt.Sprintf("物理核心数%v", physicalCnt),
+				fmt.Sprintf("总的 CPU 使用率%v", totalPercent),
+			)
+
+			fmt.Println("每个CPU的使用率-信息",
+				perPercents,
+			)
+			// xlog.S(app.Ctx).Infow("loadStat-信息", "loadStat", loadStat)
+		}
+	}
+
 }

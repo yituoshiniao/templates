@@ -6,15 +6,15 @@ import (
 	"strings"
 	"time"
 
-	"{{ .Mod }}/dao/query"
+	"{{ .Mod }}/gen/dao/query"
 	"{{ .Mod }}/internal/conn"
 	"{{ .Mod }}/internal/module/mockv2/application/entity"
 
 	// "github.com/jinzhu/gorm"
 	"github.com/pkg/errors"
-	xdb "gitlab.intsig.net/cs-server2/kit/xdb/v2"
-	"gitlab.intsig.net/cs-server2/kit/xlog"
-	"gitlab.intsig.net/cs-server2/kit/xtype"
+	xdb "github.com/yituoshiniao/kit/xdb/v2"
+	"github.com/yituoshiniao/kit/xlog"
+	"github.com/yituoshiniao/kit/xtype"
 	gormv2 "gorm.io/gorm"
 )
 

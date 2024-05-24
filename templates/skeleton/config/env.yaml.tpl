@@ -7,7 +7,6 @@ localCache:
   mardMaxCacheSize: 2048 #设置缓存最大值(单位为MB),0表示无限制
 bind: ':3013'
 name: &name {{ .AppName }}
-
 gray:
   version: v1.1.1
   serviceName: *name
@@ -20,7 +19,6 @@ monitor:
   host:
   port: 6013
 gobPath: &logpath /apps/log/app/{{ .AppName }}
-
 xLogger:
   serviceName: *name
   level: debug

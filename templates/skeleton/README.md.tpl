@@ -1,10 +1,10 @@
-#  {{ .AppName }}
-{{ .AppName }} 服务
+# {{ .AppName }}
+GIN HTTP API 服务
 
 
 ## 关于
 
-` {{ .AppName }}` 是基于 [Gin](https://github.com/gin-gonic/gin) 进行模块化设计的 API 框架，封装了常用的功能，使用简单，致力于进行快速的业务研发; 使用wire依赖注入,约束项目组开发，规避混乱无序及自由随意的编码。
+`{{ .AppName }}` 是基于 [Gin](https://github.com/gin-gonic/gin) 进行模块化设计的 API 框架，封装了常用的功能，使用简单，致力于进行快速的业务研发; 使用wire依赖注入,约束项目组开发，规避混乱无序及自由随意的编码。
 
 供参考学习，线上使用请谨慎！
 
@@ -50,7 +50,7 @@ xLogger:
 #  format: json
   stdout: false #是否输出到控制台
   file:
-    filename: /apps/log/app/ {{ .AppName }}/app.log #日志文件路径
+    filename: /apps/log/app/{{ .AppName }}/app.log #日志文件路径
     maxSize: '500' #单个文件最大M
     maxDays: 3  #做多保留多少天
     compress: true #是否开启压缩
@@ -75,7 +75,7 @@ asynq:
   #是否开启调度注册; 当多台机器时会重复注册，导致任务执行多次；多个机器只需要开启一台服务的注册即可；执行任务时分布式的
   enableRegisterSched: true
   #动态调度任务 配置文件路径
-  periodicTaskConfig: '/apps/conf/ {{ .AppName }}/periodic_task_config.yaml'
+  periodicTaskConfig: '/apps/conf/{{ .AppName }}/periodic_task_config.yaml'
   # 是否开启动态任务调度 注册,分布式服务保持一台可以调度即可； 否则出现重复任务
   enablePeriodicTaskSched: true
 #dashbord访问地址: http://localhost:7013/monitoring

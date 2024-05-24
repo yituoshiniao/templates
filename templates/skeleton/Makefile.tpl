@@ -6,10 +6,11 @@ dirName := $(shell basename $(PWD))
 envPath = cs_healthy/$(dirName)/$(env)
 dockerName = $(dirName)-$(env)
 currentBranch = $(shell git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
-find_str = "github_com_yituoshiniao_gin-api-http_"
+find_str = "github_com_yituoshiniao_{{ .AppName }}_"
 replace_str = ""
+swag_path = "gen/swag-doc"
 
-swagger_file = "/$(dirName)/swag-doc/swagger/swagger.json"
+swagger_file = "/$(dirName)/$(swag_path)/swagger/swagger.json"
 api_html_file = "/$(dirName)/gen/html2/index.html"
 api_tmp_html_file = "/$(dirName)/gen/html2/api.html"
 SRCS = $(shell git ls-files '*.go')
@@ -28,11 +29,11 @@ pwd:
 #运行一下所有命令
 all:wire db doc
 
-#一键生成doc快捷命令; [1、生成swag； 2、替换多余字符串；3、复制swagger到gen目录]
-doc: doc-swag replace-swag-json copy-doc
+#一键生成doc快捷命令; [1、生成swag； 2、替换多余字符串;]
+doc: doc-swag replace-swag-json
 
 #生成openapi sdk 客户端
-gen-openapi:openapi-doc-docker-go openapi-doc-docker-lua openapi-doc-html openapi-documentation openapi-doc-cwiki
+gen-openapi:openapi-doc-docker-go openapi-doc-docker-lua openapi-doc-html openapi-documentation openapi-doc-cwiki gen-subsplit
 
 
 
@@ -126,25 +127,25 @@ deploy:  run-local
 #   --generatedTime                        是否在 docs.go 顶部生成时间戳，默认 false
 
 doc-swag:
-	#swag init -g cmd/server/main.go -o swag-doc/swagger
+	#swag init -g cmd/server/main.go -o gen/swag-doc/swagger
 	swag fmt
-	swag init   -md ./swag-doc/md  \
+	swag init   -md ./$(swag_path)/md  \
 		--parseDependency \
 		--parseInternal=true \
 		--parseGoList=true \
 		--parseDepth=300 \
 		-g cmd/server/main.go \
 		--generatedTime=false \
-		-o swag-doc/swagger
+		-o $(swag_path)/swagger
 	sleep 1
 	#yapi-import-tmp.json yapi 服务器配置，其中server配置是服务端地址
 	yapi import  || true
 	@echo "swagger 成功"
 
-copy-doc:
-	rm -rf ./gen/swagger
-	cp -rf ./swag-doc/swagger ./gen #拷贝swagger到gen目录下
-	@echo "success 成功"
+#copy-doc:
+#	rm -rf ./gen/swagger
+#	cp -rf ./$(swag_path)/swagger ./gen #拷贝swagger到gen目录下
+#	@echo "success 成功"
 
 
 
@@ -152,9 +153,9 @@ copy-doc:
 
 #替换 find_str 字符串为 replace_str 字符串
 replace-swag-json:
-	$(shell (find ./swag-doc/swagger -iname "*.json") | xargs -n1 -IX bash -c 'sed s/$(find_str)/$(replace_str)/ X > X.tmp && mv X{.tmp,}')
-	$(shell (find ./swag-doc/swagger -iname "*.go") | xargs -n1 -IX bash -c 'sed s/$(find_str)/$(replace_str)/ X > X.tmp && mv X{.tmp,}')
-	$(shell (find ./swag-doc/swagger -iname "*.yaml") | xargs -n1 -IX bash -c 'sed s/$(find_str)/$(replace_str)/ X > X.tmp && mv X{.tmp,}')
+	$(shell (find ./$(swag_path)/swagger -iname "*.json") | xargs -n1 -IX bash -c 'sed s/$(find_str)/$(replace_str)/ X > X.tmp && mv X{.tmp,}')
+	$(shell (find ./$(swag_path)/swagger -iname "*.go") | xargs -n1 -IX bash -c 'sed s/$(find_str)/$(replace_str)/ X > X.tmp && mv X{.tmp,}')
+	$(shell (find ./$(swag_path)/swagger -iname "*.yaml") | xargs -n1 -IX bash -c 'sed s/$(find_str)/$(replace_str)/ X > X.tmp && mv X{.tmp,}')
 	@echo "swagger 成功"
 
 
@@ -178,8 +179,8 @@ gen-subsplit:
 # 生成 openapi-generator 生成多语言sdk服务端(本地命令)
 #详情：https://openapi-generator.tech/docs/generators
 openapi-doc-server:
-	rm -rf ./swag-doc/swagger/go
-	npx @openapitools/openapi-generator-cli generate -i ./swag-doc/swagger/swagger.json \
+	rm -rf ./$(swag_path)/swagger/go
+	npx @openapitools/openapi-generator-cli generate -i ./$(swag_path)/swagger/swagger.json \
 		-g go-gin-server \
 	 	-o ./gen/go-gin-server
 		@echo "执行成功"
@@ -196,7 +197,7 @@ openapi-doc-cwiki:
 		@echo "执行成功"
 
 
-#生成html文档 #-c "./swag-doc/swagger/config.json"
+#生成html文档 #-c "./$(swag_path)/swagger/config.json"
 out_path_html =  "/$(dirName)/gen/html2"
 openapi-doc-html:
 	rm -rf .$(out_path_html)
@@ -209,7 +210,7 @@ openapi-doc-html:
 
 openapi-documentation-openapi:
 	npx @openapitools/openapi-generator-cli generate \
- 		-i ./swag-doc/swagger/swagger.json \
+ 		-i ./$(swag_path)/swagger/swagger.json \
 		-g openapi-yaml	\
 	 	-o ./gen/openapi-yaml
 
@@ -232,9 +233,9 @@ openapi-documentation:
 
 # 生成 openapi-generator 生成多语言sdk客户端(本地命令)
 openapi-doc:
-	rm -rf ./swag-doc/swagger/go
+	rm -rf ./$(swag_path)/swagger/go
 	npx @openapitools/openapi-generator-cli generate \
-		-i ./swag-doc/swagger/swagger.json \
+		-i ./$(swag_path)/swagger/swagger.json \
 		-g go \
 	 	-o ./api/swagger/go_bak
 

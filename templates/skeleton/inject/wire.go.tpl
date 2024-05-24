@@ -7,16 +7,16 @@ import (
 	"github.com/google/wire"
 
 	"{{ .Mod }}/config"
-	"{{.Mod}}/internal/api"
-	"{{.Mod}}/internal/api/cron"
-	app2 "{{.Mod}}/internal/app"
-	"{{.Mod}}/internal/conn"
-	"{{.Mod}}/internal/metrics"
-	"{{.Mod}}/internal/module/auth"
-	"{{.Mod}}/internal/module/mockv2"
-	"{{.Mod}}/internal/router"
-	"{{.Mod}}/internal/task"
-	"{{.Mod}}/internal/util"
+	"{{ .Mod }}/internal/api"
+	"{{ .Mod }}/internal/api/cron"
+	app2 "{{ .Mod }}/internal/app"
+	"{{ .Mod }}/internal/conn"
+	"{{ .Mod }}/internal/metrics"
+	"{{ .Mod }}/internal/module/auth"
+	"{{ .Mod }}/internal/module/mockv2"
+	"{{ .Mod }}/internal/router"
+	"{{ .Mod }}/internal/task"
+	"{{ .Mod }}/internal/util"
 )
 
 func InitApp() (healthy *app2.App, cleanup func(), err error) {

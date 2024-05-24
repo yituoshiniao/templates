@@ -2,7 +2,7 @@ package conn
 
 import (
 	"github.com/go-redis/redis"
-	"gitlab.intsig.net/cs-server2/kit/xrds"
+	"github.com/yituoshiniao/kit/xrds"
 
 	"{{ .Mod }}/config"
 )

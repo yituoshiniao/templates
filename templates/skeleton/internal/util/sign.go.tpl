@@ -6,7 +6,7 @@ import (
 	"encoding/hex"
 	"sort"
 
-	"gitlab.intsig.net/cs-server2/kit/xlog"
+	"github.com/yituoshiniao/kit/xlog"
 	"go.uber.org/zap"
 )
 

@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"time"
 
-	"gitlab.intsig.net/cs-server2/kit/xhttp/defaultclient"
+	"github.com/yituoshiniao/kit/xhttp/defaultclient"
 )
 
 // HttpClient GO默认 http.Client

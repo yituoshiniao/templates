@@ -11,7 +11,7 @@ import (
 
 	snowflake2 "github.com/GUAIK-ORG/go-snowflake/snowflake"
 	"github.com/bwmarrin/snowflake"
-	"gitlab.intsig.net/cs-server2/kit/xlog"
+	"github.com/yituoshiniao/kit/xlog"
 
 	"{{ .Mod }}/config"
 )
